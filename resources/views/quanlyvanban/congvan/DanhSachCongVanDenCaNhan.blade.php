@@ -32,9 +32,9 @@ top: 0%;
   width: 300px;
 }
 </style>
-<h2>Danh sách công văn đến</h2>
+<h2>Công văn gửi đến cho cá nhân</h2>
 <div style="margin: 3%;">
-   @foreach($dsCongVanDen as $congVan)
+   @foreach($dsCongVan as $congVan)
    <p style='text-align: left;'>
       Số ký hiệu văn bản: {{$congVan->SO_CONG_VAN}} - {{$congVan->TEN_DON_VI}} @php 
           echo $congVan->CAP_DO_QUAN_TRONG=='0'?"<i><font color='red'>Khẩn</font></i>":''; 
@@ -47,7 +47,7 @@ top: 0%;
    <hr>
    </p>
    @endforeach
-   {{$dsCongVanDen->links()}}
+   {{$dsCongVan->links()}}
    <div id="timkiemtheo" class="TimKiem" style="margin-top: 3%;">
       <form action="{{route('quanlyvanban.congvan.danhsachcongvanden')}}">
          {{csrf_field()}}

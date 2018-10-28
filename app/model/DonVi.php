@@ -13,4 +13,8 @@ class DonVi extends Model
     public function dsDonVi(){
     	return DB::table('donvi')->get();
     }
+
+    public function getAllExceptMe($maDonVi){
+      return DB::table('donvi')->where('MA_DON_VI','!=',$maDonVi)->get();
+    }
 }

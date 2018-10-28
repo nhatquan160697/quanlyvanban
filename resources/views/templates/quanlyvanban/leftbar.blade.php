@@ -2,9 +2,9 @@
     <a style="text-decoration: none;border-bottom: 1px solid white; " href="{{route('quanlyvanban.congvan.index')}}">TRANG CHỦ</a>
    <button class="dropdown-btn">VĂN BẢN</button>
    <div class="dropdown-container">
-      <a href="{{route('quanlyvanban.congvan.danhsachcongvanden')}}">Văn bản đến</a>
+      <a href="{{route('quanlyvanban.congvan.danhsachcongvandendonvi')}}">Văn bản gửi đến đơn vị</a>
       @if(Session::get('quyenTruyCap')==1)
-      <a href="{{route('quanlyvanban.congvan.danhsachcongvandi')}}">Văn bản đi</a>
+      <a href="">Văn bản đã gửi</a>
       <a href="{{route('quanlyvanban.congvan.taomoicongvan')}}">Tạo mới và lưu văn bản</a>
       @endif
    </div>
@@ -20,11 +20,6 @@
       <a href="{{url('/FormThemNhanSu')}}">Ủy quyền</a>
    </div>
    @endif
-   <button class="dropdown-btn">CÔNG VĂN  </button>
-   <div class="dropdown-container">
-      <a href="#">ĐƠN VỊ</a>
-      <a href="#">NHÂN SỰ</a>
-   </div>
    <button class="dropdown-btn">KẾ HOẠCH  </button>
    <div class="dropdown-container">
       <a href="#">Thời khóa biểu</a>
@@ -33,8 +28,8 @@
    </div>
    <button class="dropdown-btn">HỘP THƯ CÁ NHÂN </button>
    <div class="dropdown-container">
-      <a href="#">Hộp thư đến</a>
-      <a href="#">Thư đã gửi</a>
+      <a href="{{route('quanlyvanban.congvan.danhsachcongvandennhansu')}}">Hộp thư đến</a>
+      <a href="{{route('quanlyvanban.congvan.danhsachcongvandinhansu')}}">Thư đã gửi</a>
    </div>
    <button class="dropdown-btn">THÔNG TIN KHÁC </button>
    <div class="dropdown-container">

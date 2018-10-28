@@ -30,6 +30,18 @@ Route::namespace('quanlyvanban')->group(function(){
 		'uses'=>'CongVanController@danhSachCongVanDen',
 		'as'=>'quanlyvanban.congvan.danhsachcongvanden'
 	]);
+	Route::get('/danh-sach-cong-van-den-nhan-su',[
+		'uses'=>'CongVanController@danhSachCongVanDenCaNhan',
+		'as'=>'quanlyvanban.congvan.danhsachcongvandennhansu'
+	]);
+	Route::get('/danh-sach-cong-van-den-don-vi',[
+		'uses'=>'CongVanController@danhSachCongVanDenDonVi',
+		'as'=>'quanlyvanban.congvan.danhsachcongvandendonvi'
+	]);
+	Route::get('/chi-tiet-van-ban',[
+		'uses'=>'CongVanController@ChiTietVanBan',
+		'as'=>'quanlyvanban.congvan.chitietvanban'
+	]);
 	Route::post('/danh-sach-cong-van-den',[
 		'uses'=>'CongVanController@danhSachCongVanDen',
 		'as'=>'quanlyvanban.congvan.danhsachcongvanden'
@@ -37,6 +49,22 @@ Route::namespace('quanlyvanban')->group(function(){
 	Route::get('/danh-sach-cong-van-di',[
 		'uses'=>'CongVanController@danhSachCongvanDi',
 		'as'=>'quanlyvanban.congvan.danhsachcongvandi'
+	]);
+	Route::get('/danh-sach-cong-van-di-ca-nhan',[
+		'uses'=>'CongVanController@danhSachCongVanDiNhanSu',
+		'as'=>'quanlyvanban.congvan.danhsachcongvandinhansu'
+	]);
+	Route::get('/chi-tiet-cong-van-di-ca-nhan-{soCongVan}-{maNhanSu}',[
+		'uses'=>'CongVanController@chiTietCongVanDiNhanSu',
+		'as'=>'quanlyvanban.congvan.chitietcongvandinhansu'
+	]);
+	Route::get('/sua-cong-van-di-ca-nhan',[
+		'uses'=>'CongVanController@getSuaCongVanDiNhanSu',
+		'as'=>'quanlyvanban.congvan.suacongvandinhansu'
+	]);
+	Route::post('/xoa-cong-van-di-ca-nhan',[
+		'uses'=>'CongVanController@xoaCongVanDiNhanSu',
+		'as'=>'quanlyvanban.congvan.xoacongvandinhansu'
 	]);
 	Route::post('/danh-sach-cong-van-di',[
 		'uses'=>'CongVanController@danhSachCongvanDi',
@@ -82,7 +110,19 @@ Route::namespace('quanlyvanban')->group(function(){
 		'uses'=>'BieuMauController@postTaoMoiBieuMau',
 		'as'=>'quanlyvanban.bieumau.taomoibieumau'
 	]);
-
+	Route::get('/sua-bieu-mau-{id}',[
+		'uses'=>'BieuMauController@getSuaBieuMau',
+		'as'=>'quanlyvanban.bieumau.getsuabieumau'
+	]);
+	Route::post('/sua-bieu-mau',[
+		'uses'=>'BieuMauController@postSuaBieuMau',
+		'as'=>'quanlyvanban.bieumau.postsuabieumau'
+	]);
+	Route::post('/xoa-bieu-mau',[
+		'uses'=>'BieuMauController@postXoaBieuMau',
+		'as'=>'quanlyvanban.bieumau.xoabieumau'
+	]);
+	//các route cho nhân sự
 	Route::get('/nhan-su-don-vi',[
 		'uses'=>'NhanSuController@nhanSuDonVi',
 		'as'=>'quanlyvanban.nhansu.nhansudonvi'
@@ -91,7 +131,7 @@ Route::namespace('quanlyvanban')->group(function(){
 		'uses'=>'NhanSuController@chiTietNhanSuDonVi',
 		'as'=>'quanlyvanban.nhansu.chitietnhansudonvi'
 	]);
-
+	//các route cho tin nhắn
 	Route::get('/gui-tin-nhan',[
 		'uses'=>'TinNhanController@getGuiTinNhan',
 		'as'=>'quanlyvanban.guitinnhan.index',
@@ -100,7 +140,6 @@ Route::namespace('quanlyvanban')->group(function(){
 		'uses'=>'TinNhanController@postGuiTinNhan',
 		'as'=>'quanlyvanban.guitinnhan.index',
 	]);
-
 	Route::get('/nhan-tin-nhan',[
 		'uses'=>'TinNhanController@getNhanTinNhan',
 		'as'=>'quanlyvanban.guitinnhan.nhantinnhan',
@@ -113,6 +152,19 @@ Route::namespace('quanlyvanban')->group(function(){
 	Route::get('/chi-tiet-tin-nhan/{id}',[
 		'uses'=>'TinNhanController@chiTietTinNhan',
 		'as'=>'quanlyvanban.guitinnhan.detail',
+	]);
+
+
+	//Chuyen tiep van ban
+	//chuyen tiep ca nhan
+	Route::post('/chuyen-tiep-van-ban-cho-ca-nhan',[
+		'uses'=>'CongVanController@chuyenTiepVanBanCaNhan',
+		'as'=>'quanlyvanban.congvan.chuyentiep.canhan',
+	]);
+	//chuyen tiep don vi
+	Route::post('/chuyen-tiep-van-ban-cho-don-vi',[
+		'uses'=>'CongVanController@chuyenTiepVanBanDonVi',
+		'as'=>'quanlyvanban.congvan.chuyentiep.donvi'
 	]);
 });
 

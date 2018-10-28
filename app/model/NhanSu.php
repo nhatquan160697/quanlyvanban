@@ -16,7 +16,9 @@ class NhanSu extends Model
     	//return Cat::OrderBy('cat_id','desc')->get(); // lấy giảm dần
    	  return DB::table('nhansu')->distinct()->paginate(3);
     }
-
+    public function getAllByID(Array $ar){
+      return DB::table('nhansu')->whereIn('MA_NHAN_SU',$ar)->get();
+    }
     public function getByMaDonVi($maDonVi){
       return DB::table('nhansu')->select('nhansu_thuocdonvi.MA_NHAN_SU','HO_VA_TEN','nhansu.SO_DIEN_THOAI','EMAIL')->join('nhansu_thuocdonvi','nhansu.MA_NHAN_SU','=','nhansu_thuocdonvi.MA_NHAN_SU')->where('MA_DON_VI',$maDonVi)->paginate(5);
     }

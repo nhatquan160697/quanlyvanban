@@ -6,7 +6,9 @@
 @foreach($dsCongVanDi as $congVan)
 <p style='text-align: left;''>
    Số ký hiệu văn bản: {{$congVan->SO_CONG_VAN}} - {{$congVan->TEN_DON_VI}}<br>
-   Về việc: {{$congVan->TRICH_YEU_NOI_DUNG}}  - <i>{{$congVan->NGAY_BAN_HANH}}</i>.<a href='' style='color: red;'>Phản hồi văn bản.</a><br>
+   Về việc: {{$congVan->TRICH_YEU_NOI_DUNG}}  - <i>{{$congVan->NGAY_BAN_HANH}}</i>.
+   <a href="" title="Đơn vị đã xem" style="float: right;margin-right: 5%;" class="fa fa-users" ></a> <br>
+   <a href='{{route('quanlyvanban.congvan.phanhoicongvan',['soCongVan'=>$congVan->SO_CONG_VAN])}}' style='color: red;'>Phản hồi văn bản.</a><br>
    File đính kèm:
    @foreach($dsFile[$congVan->SO_CONG_VAN] as $file)
    <a href='{{url("file/$file->FILE_DINH_KEM")}}' download>{{$file->FILE_DINH_KEM}}</a>
